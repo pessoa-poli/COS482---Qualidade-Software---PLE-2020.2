@@ -1,0 +1,30 @@
+{
+  "travelAgencyApp": {
+    "travelAgency": {
+      "home": {
+        "title": "Travel Agencies",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Travel Agencies found"
+      },
+      "detail": {
+        "title": "Travel Agency"
+      },
+      "id": "ID",
+      "name": "Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "airlineCompanyName": "Airline Company Name",
+      "airlineTicketNumber": "Airline Ticket Number",
+      "ticketQuantity": "Ticket Quantity",
+      "hotelName": "Hotel Name",
+      "hotelBookingNumber": "Hotel Booking Number",
+      "hotelTypeRoom": "Hotel Type Room",
+      "carCompanyName": "Car Company Name",
+      "carBookingNumber": "Car Booking Number",
+      "carType": "Car Type",
+      "insuranceCompanyName": "Insurance Company Name",
+      "insuranceNumber": "Insurance Number",
+      "insuranceType": "Insurance Type"
+    }
+  }
+}

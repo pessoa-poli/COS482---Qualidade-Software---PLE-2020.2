@@ -1,0 +1,38 @@
+{
+  "travelAgencyApp": {
+    "travelAgencyProcess": {
+      "home": {
+        "title": "Travel Agency Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Travel Agency Process",
+        "createOrEditLabel": "Create or edit a Travel Agency Process",
+        "notFound": "No Travel Agency Processes found"
+      },
+      "created": "A new Travel Agency Process is created with identifier {{ param }}",
+      "updated": "A Travel Agency Process is updated with identifier {{ param }}",
+      "deleted": "A Travel Agency Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Travel Agency Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Travel Agency Process"
+      },
+      "id": "ID",
+      "name": "Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "airlineCompanyName": "Airline Company Name",
+      "airlineTicketNumber": "Airline Ticket Number",
+      "ticketQuantity": "Ticket Quantity",
+      "hotelName": "Hotel Name",
+      "hotelBookingNumber": "Hotel Booking Number",
+      "hotelTypeRoom": "Hotel Type Room",
+      "carCompanyName": "Car Company Name",
+      "carBookingNumber": "Car Booking Number",
+      "carType": "Car Type",
+      "insuranceCompanyName": "Insurance Company Name",
+      "insuranceNumber": "Insurance Number",
+      "insuranceType": "Insurance Type"
+    }
+  }
+}

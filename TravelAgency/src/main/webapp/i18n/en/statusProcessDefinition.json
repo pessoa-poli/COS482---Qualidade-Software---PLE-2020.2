@@ -1,0 +1,11 @@
+{
+  "travelAgencyApp": {
+    "StatusProcessDefinition": {
+      "null": "",
+      "NEW": "NEW",
+      "ERROR": "ERROR",
+      "ACTIVE": "ACTIVE",
+      "INACTIVE": "INACTIVE"
+    }
+  }
+}

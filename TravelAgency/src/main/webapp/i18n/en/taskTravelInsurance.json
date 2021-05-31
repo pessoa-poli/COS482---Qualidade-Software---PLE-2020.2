@@ -1,0 +1,29 @@
+{
+  "travelAgencyApp": {
+    "taskTravelInsurance": {
+      "home": {
+        "title": "Task Travel Insurances",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Travel Insurance",
+        "createOrEditLabel": "Create or edit a Task Travel Insurance",
+        "notFound": "No Task Travel Insurances found"
+      },
+      "created": "A new Task Travel Insurance is created with identifier {{ param }}",
+      "updated": "A Task Travel Insurance is updated with identifier {{ param }}",
+      "deleted": "A Task Travel Insurance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Travel Insurance {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Travel Insurance"
+      },
+      "id": "ID",
+      "name": "Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "insuranceCompanyName": "Insurance Company Name",
+      "insuranceNumber": "Insurance Number",
+      "insuranceType": "Insurance Type"
+    }
+  }
+}

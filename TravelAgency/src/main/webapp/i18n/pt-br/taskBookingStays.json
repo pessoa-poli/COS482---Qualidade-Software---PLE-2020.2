@@ -1,0 +1,29 @@
+{
+  "travelAgencyApp": {
+    "taskBookingStays": {
+      "home": {
+        "title": "Task Booking Stays",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Task Booking Stays",
+        "createOrEditLabel": "Criar ou editar Task Booking Stays",
+        "notFound": "Nenhum Task Booking Stays encontrado"
+      },
+      "created": "Um novo Task Booking Stays foi criado com o identificador {{ param }}",
+      "updated": "Um Task Booking Stays foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Task Booking Stays foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Task Booking Stays {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Booking Stays"
+      },
+      "id": "ID",
+      "name": "Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "hotelName": "Hotel Name",
+      "hotelBookingNumber": "Hotel Booking Number",
+      "hotelTypeRoom": "Hotel Type Room"
+    }
+  }
+}

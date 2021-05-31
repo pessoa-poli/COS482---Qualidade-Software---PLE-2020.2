@@ -1,0 +1,26 @@
+{
+  "travelAgencyApp": {
+    "travelAgencyStartForm": {
+      "home": {
+        "title": "Travel Agency Start Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Travel Agency Start Form",
+        "createOrEditLabel": "Create or edit a Travel Agency Start Form",
+        "notFound": "No Travel Agency Start Forms found"
+      },
+      "created": "A new Travel Agency Start Form is created with identifier {{ param }}",
+      "updated": "A Travel Agency Start Form is updated with identifier {{ param }}",
+      "deleted": "A Travel Agency Start Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Travel Agency Start Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Travel Agency Start Form"
+      },
+      "id": "ID",
+      "name": "Name",
+      "startDate": "Start Date",
+      "endDate": "End Date"
+    }
+  }
+}

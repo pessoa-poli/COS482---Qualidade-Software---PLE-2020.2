@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0gegoc1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.3.0">
+  <bpmn:process id="TravelAgencyProcess" name="Travel Agency Process" isExecutable="true">
+    <bpmn:documentation># The Viridian Travels -Planning your Travel
+
+![The Viridian Travels](https://github.com/pessoa-poli/COS482---Qualidade-Software---UFRJ-2020.2)
+
+**Planning a trip can feel like both the most exciting AND the most overwhelming part of travel.**
+Sure, creating a Pinterest board full of gorgeous pictures is fun, but then you start trying to figure out the actual logistics and it hits you … oh god, this is SO MUCH WORK. Cue panic attacks. *Wow, I totally just described our wedding planning process, too. Anyone else?*
+
+
+But planning a trip doesn’t have to be the source of constant anxiety and overwhelm! Through the years, I’ve perfected my trip planning process, and I’ve got it down to a fine science.
+
+Er, well, maybe not a science, but sort of like a general step-by-step outline.  
+**Breaking down each of the steps to planning a trip helps me cut through the confusion and tackle stuff in a practical, down to earth way.** 
+
+So, this travel plan process aids you in this mission and consists of the following tasks:
+
+###HEY! Listen here mate, there are some guidelines for when you are starting a travel plan in The Viridian Travels agency. 
+If the name you wish to give your travel plan is Travel Plan, AND you wish to rent a car, dont forget to add the word *Car* on the name of your travel plan, which will then look like this: Travel Plan Car. 
+
+
+###The same logic applies if you wish to also buy a Insurance Plan. If you wish rent a car and also buy a Insurance Plan, the name of your travel plan will look like this: *Travel Plan Car Insurance*
+
+
+###Observation: The words *Insurance*, *Car*, *Stay* need to be capitalized.
+
+Summary of the key words
+1. Buy **Airlines** Tickets
+1. Book a **Stay**
+1. Rent a **Car**
+1. Rent a Travel **Insurance**</bpmn:documentation>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:documentation>Domain fields updated:
+- businessKey
+- originCity
+- destinCity
+- initialDate
+- endDate
+- travelAgency.status = PENDING</bpmn:documentation>
+      <bpmn:outgoing>Flow_190ysy8</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_190ysy8" sourceRef="StartEvent_1" targetRef="TaskTicket" />
+    <bpmn:userTask id="TaskTicket" name="Buy Airlines Tickets">
+      <bpmn:documentation># You are about to choose your flight tickets, think well my friend, the quality time you will have, depends on your destination!
+
+Below we have the link to the World Renowned traveller and Computer Engineer teacher Cláudio Miceli.
+It WILL be the best resource for you travel addicts to get information about how to travel, light, plan well and be prepared for the most adverse conditions you could find while dealing with air line companies and country immigration officers!
+[Viagem Sem Cilada &lt;-- Click here already!] (https://www.youtube.com/channel/UC4RHRs16Am99d-_XBq2GU4w)</bpmn:documentation>
+      <bpmn:incoming>Flow_190ysy8</bpmn:incoming>
+      <bpmn:outgoing>Flow_1spt89u</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_1b28euj">
+      <bpmn:incoming>Flow_1spt89u</bpmn:incoming>
+      <bpmn:outgoing>Flow_1mhw7r2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0yf90bg</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1spt89u" sourceRef="TaskTicket" targetRef="Gateway_1b28euj" />
+    <bpmn:sequenceFlow id="Flow_1mhw7r2" sourceRef="Gateway_1b28euj" targetRef="TaskStay">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${pi.getTravelAgency().getName().contains("Stay")}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_15bme70">
+      <bpmn:incoming>Flow_1ckydf6</bpmn:incoming>
+      <bpmn:incoming>Flow_0yf90bg</bpmn:incoming>
+      <bpmn:outgoing>Flow_032bxvk</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0ufw7gg</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1ckydf6" sourceRef="TaskStay" targetRef="Gateway_15bme70" />
+    <bpmn:sequenceFlow id="Flow_032bxvk" sourceRef="Gateway_15bme70" targetRef="TaskCar">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${pi.getTravelAgency().getName().contains("Car")}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_1tfx4oe">
+      <bpmn:incoming>Flow_0kgs527</bpmn:incoming>
+      <bpmn:incoming>Flow_0ufw7gg</bpmn:incoming>
+      <bpmn:outgoing>Flow_14rpksn</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1lkgbro</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0kgs527" sourceRef="TaskCar" targetRef="Gateway_1tfx4oe" />
+    <bpmn:exclusiveGateway id="Gateway_1ic0ytl">
+      <bpmn:incoming>Flow_062xwdp</bpmn:incoming>
+      <bpmn:incoming>Flow_14rpksn</bpmn:incoming>
+      <bpmn:outgoing>Flow_19q7ndf</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_062xwdp" sourceRef="TaskInsurance" targetRef="Gateway_1ic0ytl" />
+    <bpmn:sequenceFlow id="Flow_19q7ndf" sourceRef="Gateway_1ic0ytl" targetRef="ProcessingRequest" />
+    <bpmn:endEvent id="Event_1p1gg4s">
+      <bpmn:incoming>Flow_1my5sk3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1my5sk3" sourceRef="ProcessingRequest" targetRef="Event_1p1gg4s" />
+    <bpmn:sequenceFlow id="Flow_0yf90bg" sourceRef="Gateway_1b28euj" targetRef="Gateway_15bme70">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!pi.getTravelAgency().getName().contains("Stay")}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0ufw7gg" sourceRef="Gateway_15bme70" targetRef="Gateway_1tfx4oe">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!pi.getTravelAgency().getName().contains("Car")}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_14rpksn" sourceRef="Gateway_1tfx4oe" targetRef="Gateway_1ic0ytl">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!pi.getTravelAgency().getName().contains("Insurance")}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="TaskStay" name="Booking Stays">
+      <bpmn:documentation># Reserving a place to crash
+
+
+Doesn't matter whether you are superman or just a humble normal regular guy, or gal, you WILL need to stop to replenish your bodily energies, and by restore I mean get some freakin rest!
+
+Thats it, there is nothing else to read here.
+
+Please, fill the form below so we can help you not feeling like a homeless person on a foreign country once the night falls.</bpmn:documentation>
+      <bpmn:incoming>Flow_1mhw7r2</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ckydf6</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="TaskCar" name="Car Rentals">
+      <bpmn:documentation># Getting that hot rod to impress people you dont know.
+
+
+Sometimes its cheaper to rent 4 wheels than to pay a train passage for the whole lot of people you are travelling with. If you are travelling with 3 or more persons alongside you, we recommend you check fair prices on public transportation for the country you will be visitting, and compare with prices for car rentals there. It might be the case it will be cheaper (and more comfortable) to rent a car and stuff everybody in to reach you preferred tourist attractions around the country of destination.
+
+
+Fill the form below if the case is, you are more likely to need a car than not.</bpmn:documentation>
+      <bpmn:incoming>Flow_032bxvk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kgs527</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="TaskInsurance" name="Travel Insurance">
+      <bpmn:documentation># Making sure you dont turn into a hobo if you perchance, say, break a leg abroad or need to cancel your plans.
+
+
+Why do I need travel insurance?
+
+
+
+1. Because sometimes...
+You have to cancel a trip last-minute.
+
+
+1. Travel insurance can reimburse you for your prepaid, non-refundable trip costs — including vacation rentals, car rentals, hotels and flights — if you have to cancel for a covered reason.
+Travel delays leave you stranded.
+
+
+1. Travel insurance can reimburse you for eligible meals, acommodation and transportation expenses during a covered delay.
+
+
+1. You get sick or hurt when you're far from home. Keep in mind, medical treatment abroad can be very expensive.
+
+
+1. Travel insurance can reimburse you for care following a covered medical emergency while traveling. We can even arrange and pay for a medical evacuation if needed.
+Fender-benders are unavoidable.
+
+
+1. Renting a car means taking on a big financial risk; even a tiny scrape can cost you hundreds. Low-priced rental car insurance lets you drive worry-free.
+You need help in a hurry.
+
+
+1. Whether you're planning a week-long road trip or a weekend getaway, you never know what might happen. Travel insurance gives you access to our 24-Hour Assistance hotline for expert, personalized support in a crisis.
+
+
+[Visit this page for more info](https://www.allianztravelinsurance.com/)</bpmn:documentation>
+      <bpmn:incoming>Flow_1lkgbro</bpmn:incoming>
+      <bpmn:outgoing>Flow_062xwdp</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="ProcessingRequest" name="Processing Request" camunda:delegateExpression="${processingRequestDelegate}">
+      <bpmn:incoming>Flow_19q7ndf</bpmn:incoming>
+      <bpmn:outgoing>Flow_1my5sk3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1lkgbro" sourceRef="Gateway_1tfx4oe" targetRef="TaskInsurance">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${pi.getTravelAgency().getName().contains("Insurance")}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:textAnnotation id="TextAnnotation_1evb3d6">
+      <bpmn:text>##StartForm Entity
+
+name: String
+startDate: LocalDate
+endDate: LocalDate</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1ie5i43" sourceRef="StartEvent_1" targetRef="TextAnnotation_1evb3d6" />
+    <bpmn:textAnnotation id="TextAnnotation_11ajce6">
+      <bpmn:text>#TravelPlan Entity
+
+name: String
+startDate: LocalDate
+endDate: LocalDate
+airlineCompanyName: String
+airlineTicketNumber: String
+ticketQuantity: String
+hotelName: String
+hotelBookingNumber: String
+hotelTypeRoom: String
+carCompanyName: String
+carBookingNumber: String
+carType: String
+insuranceCompanyName: String
+insuranceNumber: String
+insuranceType: String</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0wzme8x">
+      <bpmn:text>##UserTask Form BuyTickets
+
+name: String , readonly
+startDate: LocalDate , readonly
+endDate: LocalDate, readonly
+airlineCompanyName: String
+airlineTicketNumber: String
+ticketQuantity: String</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0pz2e28" sourceRef="TaskTicket" targetRef="TextAnnotation_0wzme8x" />
+    <bpmn:textAnnotation id="TextAnnotation_0lh02qg">
+      <bpmn:text>##UserTask Form Booking
+
+name: String
+startDate: LocalDate
+endDate: LocalDate
+hotelName: String
+hotelBookingNumber: String
+hotelTypeRoom: String</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0szyn5s" sourceRef="TaskStay" targetRef="TextAnnotation_0lh02qg" />
+    <bpmn:textAnnotation id="TextAnnotation_16u37dh">
+      <bpmn:text>##UserTask Form RentCar
+
+name: String
+startDate: LocalDate
+endDate: LocalDate
+carCompanyName: String
+carBookingNumber: String
+carType: String</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0smyill" sourceRef="TaskCar" targetRef="TextAnnotation_16u37dh" />
+    <bpmn:textAnnotation id="TextAnnotation_0iqgjqq">
+      <bpmn:text>##UserTask Form TravelInsurance
+
+name: String
+startDate: LocalDate
+endDate: LocalDate
+insuranceCompanyName: String
+insuranceNumber: String
+insuranceType: String</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1isixbn" sourceRef="TaskInsurance" targetRef="TextAnnotation_0iqgjqq" />
+    <bpmn:textAnnotation id="TextAnnotation_0hgltrc">
+      <bpmn:text>Start</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0dtrvrb" sourceRef="StartEvent_1" targetRef="TextAnnotation_0hgltrc" />
+    <bpmn:textAnnotation id="TextAnnotation_0cy3637">
+      <bpmn:text>End</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0jg5l61" sourceRef="Event_1p1gg4s" targetRef="TextAnnotation_0cy3637" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="TravelAgencyProcess">
+      <bpmndi:BPMNEdge id="Flow_1lkgbro_di" bpmnElement="Flow_1lkgbro">
+        <di:waypoint x="1080" y="422" />
+        <di:waypoint x="1080" y="380" />
+        <di:waypoint x="1170" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14rpksn_di" bpmnElement="Flow_14rpksn">
+        <di:waypoint x="1105" y="447" />
+        <di:waypoint x="1335" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ufw7gg_di" bpmnElement="Flow_0ufw7gg">
+        <di:waypoint x="825" y="447" />
+        <di:waypoint x="1055" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0yf90bg_di" bpmnElement="Flow_0yf90bg">
+        <di:waypoint x="535" y="447" />
+        <di:waypoint x="775" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1my5sk3_di" bpmnElement="Flow_1my5sk3">
+        <di:waypoint x="1550" y="447" />
+        <di:waypoint x="1622" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19q7ndf_di" bpmnElement="Flow_19q7ndf">
+        <di:waypoint x="1385" y="447" />
+        <di:waypoint x="1450" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_062xwdp_di" bpmnElement="Flow_062xwdp">
+        <di:waypoint x="1270" y="380" />
+        <di:waypoint x="1360" y="380" />
+        <di:waypoint x="1360" y="422" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kgs527_di" bpmnElement="Flow_0kgs527">
+        <di:waypoint x="990" y="520" />
+        <di:waypoint x="1080" y="520" />
+        <di:waypoint x="1080" y="472" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_032bxvk_di" bpmnElement="Flow_032bxvk">
+        <di:waypoint x="800" y="472" />
+        <di:waypoint x="800" y="520" />
+        <di:waypoint x="890" y="520" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ckydf6_di" bpmnElement="Flow_1ckydf6">
+        <di:waypoint x="710" y="380" />
+        <di:waypoint x="800" y="380" />
+        <di:waypoint x="800" y="422" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mhw7r2_di" bpmnElement="Flow_1mhw7r2">
+        <di:waypoint x="510" y="422" />
+        <di:waypoint x="510" y="380" />
+        <di:waypoint x="610" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1spt89u_di" bpmnElement="Flow_1spt89u">
+        <di:waypoint x="430" y="447" />
+        <di:waypoint x="485" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_190ysy8_di" bpmnElement="Flow_190ysy8">
+        <di:waypoint x="228" y="447" />
+        <di:waypoint x="330" y="447" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="429" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14rr20m_di" bpmnElement="TaskTicket">
+        <dc:Bounds x="330" y="407" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1b28euj_di" bpmnElement="Gateway_1b28euj" isMarkerVisible="true">
+        <dc:Bounds x="485" y="422" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_15bme70_di" bpmnElement="Gateway_15bme70" isMarkerVisible="true">
+        <dc:Bounds x="775" y="422" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1tfx4oe_di" bpmnElement="Gateway_1tfx4oe" isMarkerVisible="true">
+        <dc:Bounds x="1055" y="422" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1ic0ytl_di" bpmnElement="Gateway_1ic0ytl" isMarkerVisible="true">
+        <dc:Bounds x="1335" y="422" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1p1gg4s_di" bpmnElement="Event_1p1gg4s">
+        <dc:Bounds x="1622" y="429" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1116y79_di" bpmnElement="TaskStay">
+        <dc:Bounds x="610" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hkm6nd_di" bpmnElement="TaskCar">
+        <dc:Bounds x="890" y="480" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_02343p4_di" bpmnElement="TaskInsurance">
+        <dc:Bounds x="1170" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jeg6g7_di" bpmnElement="ProcessingRequest">
+        <dc:Bounds x="1450" y="407" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1evb3d6_di" bpmnElement="TextAnnotation_1evb3d6" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="190" y="85" width="139.9924089068826" height="95.98515519568151" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_11ajce6_di" bpmnElement="TextAnnotation_11ajce6" bioc:stroke="rgb(30, 136, 229)" bioc:fill="rgb(187, 222, 251)">
+        <dc:Bounds x="1430" y="81" width="199.99313563975838" height="255" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0wzme8x_di" bpmnElement="TextAnnotation_0wzme8x" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="350" y="84" width="194.98978055077455" height="125" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0lh02qg_di" bpmnElement="TextAnnotation_0lh02qg" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="570" y="84" width="219.9864390555201" height="125" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_16u37dh_di" bpmnElement="TextAnnotation_16u37dh" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="840" y="81" width="199.99401723037653" height="125" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0iqgjqq_di" bpmnElement="TextAnnotation_0iqgjqq" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="1120" y="81" width="199.98313090418355" height="125" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0hgltrc_di" bpmnElement="TextAnnotation_0hgltrc">
+        <dc:Bounds x="160" y="520" width="99.99156545209178" height="29.984817813765183" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0cy3637_di" bpmnElement="TextAnnotation_0cy3637">
+        <dc:Bounds x="1590" y="505" width="99.99156545209178" height="29.984817813765183" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1ie5i43_di" bpmnElement="Association_1ie5i43">
+        <di:waypoint x="210" y="429" />
+        <di:waypoint x="210" y="181" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0pz2e28_di" bpmnElement="Association_0pz2e28">
+        <di:waypoint x="400" y="407" />
+        <di:waypoint x="400" y="209" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0szyn5s_di" bpmnElement="Association_0szyn5s">
+        <di:waypoint x="660" y="340" />
+        <di:waypoint x="660" y="209" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0smyill_di" bpmnElement="Association_0smyill">
+        <di:waypoint x="940" y="480" />
+        <di:waypoint x="940" y="206" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1isixbn_di" bpmnElement="Association_1isixbn">
+        <di:waypoint x="1220" y="340" />
+        <di:waypoint x="1220" y="206" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0dtrvrb_di" bpmnElement="Association_0dtrvrb">
+        <di:waypoint x="210" y="465" />
+        <di:waypoint x="210" y="520" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0jg5l61_di" bpmnElement="Association_0jg5l61">
+        <di:waypoint x="1640" y="465" />
+        <di:waypoint x="1640" y="505" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

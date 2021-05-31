@@ -1,0 +1,29 @@
+{
+  "travelAgencyApp": {
+    "taskBuyAirlinesTickets": {
+      "home": {
+        "title": "Task Buy Airlines Tickets",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Task Buy Airlines Tickets",
+        "createOrEditLabel": "Criar ou editar Task Buy Airlines Tickets",
+        "notFound": "Nenhum Task Buy Airlines Tickets encontrado"
+      },
+      "created": "Um novo Task Buy Airlines Tickets foi criado com o identificador {{ param }}",
+      "updated": "Um Task Buy Airlines Tickets foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Task Buy Airlines Tickets foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Task Buy Airlines Tickets {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Buy Airlines Tickets"
+      },
+      "id": "ID",
+      "name": "Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "airlineCompanyName": "Airline Company Name",
+      "airlineTicketNumber": "Airline Ticket Number",
+      "ticketQuantity": "Ticket Quantity"
+    }
+  }
+}

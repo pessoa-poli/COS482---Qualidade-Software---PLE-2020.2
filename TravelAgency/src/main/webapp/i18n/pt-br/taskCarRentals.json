@@ -1,0 +1,29 @@
+{
+  "travelAgencyApp": {
+    "taskCarRentals": {
+      "home": {
+        "title": "Task Car Rentals",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Task Car Rentals",
+        "createOrEditLabel": "Criar ou editar Task Car Rentals",
+        "notFound": "Nenhum Task Car Rentals encontrado"
+      },
+      "created": "Um novo Task Car Rentals foi criado com o identificador {{ param }}",
+      "updated": "Um Task Car Rentals foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Task Car Rentals foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Task Car Rentals {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Car Rentals"
+      },
+      "id": "ID",
+      "name": "Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "carCompanyName": "Car Company Name",
+      "carBookingNumber": "Car Booking Number",
+      "carType": "Car Type"
+    }
+  }
+}

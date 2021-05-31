@@ -1,0 +1,45 @@
+{
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "insuranceCompanyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "insuranceNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "insuranceType",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "TravelAgencyProcess",
+  "processEntityName": "TravelAgencyProcess",
+  "taskBpmnId": "TaskInsurance",
+  "domainEntityName": "TravelAgency",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "skipFakeData": true,
+  "name": "TaskTravelInsurance",
+  "changelogDate": "20210401000005"
+}

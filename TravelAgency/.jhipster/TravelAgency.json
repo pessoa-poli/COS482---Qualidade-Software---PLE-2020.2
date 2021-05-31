@@ -1,0 +1,74 @@
+{
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "airlineCompanyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "airlineTicketNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ticketQuantity",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hotelName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hotelBookingNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hotelTypeRoom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "carCompanyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "carBookingNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "carType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "insuranceCompanyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "insuranceNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "insuranceType",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityType": "domain",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": true,
+  "pagination": "no",
+  "name": "TravelAgency",
+  "changelogDate": "20210401000001",
+  "skipFakeData": true
+}
